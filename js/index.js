@@ -119,7 +119,7 @@ class movingArrows {
     constructor() {
         this.width = 90;
         this.height = 90;
-        this.positionY = 0;
+        this.positionY = 0 - this.height;
     }
 
     createDomElement(direction, position){
@@ -147,9 +147,8 @@ const upArrow = new upStaticArrow();
 const rightArrow = new rightStaticArrow();
 
 staticArrows.push(leftArrow, downArrow, upArrow, rightArrow)
-console.log(staticArrows)
 
-arrowDirections = [
+const arrowDirections = [
     {
         direction: "./images/arrows/moving-left.png",
         position: leftArrow.positionX
@@ -179,4 +178,4 @@ setInterval(() => {
     const newArrow = new movingArrows();
     newArrow.createDomElement(randomDirection,randomPosition)
     randomArrows.push(newArrow);
-}, 3000);
+}, 2000);
