@@ -13,9 +13,4 @@ Built with web technologies (html, css, javascript)
 
 # How to play
 
-Press the right arrow key at the right time :)
-
-
-# Demo
-
-In progress..
+Press the right arrow key at the right time and increment your score
