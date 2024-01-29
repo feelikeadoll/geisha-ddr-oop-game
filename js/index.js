@@ -140,7 +140,7 @@ class movingArrows {
     }
 
     moveUp() {
-        this.positionY++;
+        this.positionY += 2;
         this.domElm.style.bottom = this.positionY + "px"; 
     }
 }
@@ -188,13 +188,47 @@ setInterval(() => {
     const newArrow = new movingArrows();
     newArrow.createDomElement(direction, imgSrc, position)
     randomArrows.push(newArrow);
-}, 800);
+}, 1000);
 
-// const leftArrowClass = document.querySelector(".left")
-// const leftArrowClass = document.querySelector(".left")
-
-setInterval(() => {
+const game = setInterval(() => {
     randomArrows.forEach((arrowElm) => {
         arrowElm.moveUp();
+
+        const classElm = arrowElm.domElm.className
+
+        if (arrowElm.positionY > 410 && arrowElm.positionY < 430) {
+            if (classElm.includes('left')) {
+                document.addEventListener("keydown", (key) => {
+                    if (key.code === 'ArrowLeft') {
+                        arrowElm.domElm.style.display = 'none';
+                    }
+                });
+            } else if (classElm.includes('down')) {
+                document.addEventListener("keydown", (key) => {
+                    if (key.code === 'ArrowDown') {
+                        arrowElm.domElm.style.display = 'none';
+                    }
+                });
+            } else if (classElm.includes('up')) {
+                document.addEventListener("keydown", (key) => {
+                    if (key.code === 'ArrowUp') {
+                        arrowElm.domElm.style.display = 'none';
+                    }
+                });
+            } else if (classElm.includes('right')) {
+                document.addEventListener("keydown", (key) => {
+                    if (key.code === 'ArrowRight') {
+                        arrowElm.domElm.style.display = 'none';
+                    }
+                });
+            }
+        }
     })
-}, 6)
+}, 22)
+ 
+
+setTimeout(() => {
+    location.href = "endgame.html"
+    clearInterval(game);
+    randomArrows = [];
+}, 30000);
