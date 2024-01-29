@@ -178,7 +178,7 @@ const arrowDirections = [
 
 const randomArrows = [];
 
-setInterval(() => {
+const createArrows = setInterval(() => {
     const randomIndex = Math.floor(Math.random() * arrowDirections.length)
         
     const direction = arrowDirections[randomIndex].direction;
@@ -227,7 +227,11 @@ const game = setInterval(() => {
 }, 15)
 
 setTimeout(() => {
-    location.href = "endgame.html";
+    clearInterval(createArrows);
+}, 30000);
+
+setTimeout(() => {
+    location.href = "score.html";
     clearInterval(game);
     randomArrows = [];
-}, 30000);
+}, 34000);
