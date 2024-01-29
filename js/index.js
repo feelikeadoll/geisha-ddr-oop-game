@@ -225,7 +225,6 @@ const game = setInterval(() => {
         }
     })
 }, 22)
- 
 
 setTimeout(() => {
     location.href = "endgame.html"
