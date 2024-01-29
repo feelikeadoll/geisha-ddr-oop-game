@@ -188,7 +188,7 @@ setInterval(() => {
     const newArrow = new movingArrows();
     newArrow.createDomElement(direction, imgSrc, position)
     randomArrows.push(newArrow);
-}, 1000);
+}, 800);
 
 const game = setInterval(() => {
     randomArrows.forEach((arrowElm) => {
@@ -224,10 +224,10 @@ const game = setInterval(() => {
             }
         }
     })
-}, 22)
+}, 15)
 
 setTimeout(() => {
-    location.href = "endgame.html"
+    location.href = "endgame.html";
     clearInterval(game);
     randomArrows = [];
 }, 30000);
