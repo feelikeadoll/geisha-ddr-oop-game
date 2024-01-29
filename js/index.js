@@ -122,13 +122,13 @@ class movingArrows {
         this.positionY = 0 - this.height;
     }
 
-    createDomElement(direction, position){
+    createDomElement(direction, src, position){
         // step1: create the element
         this.domElm = document.createElement("img");
 
         // step2: add content or modify
-        this.domElm.setAttribute("src", direction);
-        this.domElm.setAttribute("class", "static-arrows")
+        this.domElm.setAttribute("src", src);
+        this.domElm.setAttribute("class", `moving-arrows ${direction}`)
         this.domElm.style.width = this.width + "px"
         this.domElm.style.height = this.height + "px"
         this.domElm.style.left = position + "px";
@@ -137,6 +137,11 @@ class movingArrows {
         //step3: append to the dom: `parentElm.appendChild()`
         const boardElm = document.getElementById("board");
         boardElm.appendChild(this.domElm);
+    }
+
+    moveUp() {
+        this.positionY++;
+        this.domElm.style.bottom = this.positionY + "px"; 
     }
 }
 
@@ -150,19 +155,23 @@ staticArrows.push(leftArrow, downArrow, upArrow, rightArrow)
 
 const arrowDirections = [
     {
-        direction: "./images/arrows/moving-left.png",
+        direction: "left",
+        src: "./images/arrows/moving-left.png",
         position: leftArrow.positionX
     },
     {
-        direction: "./images/arrows/moving-down.png",
+        direction: "down",
+        src: "./images/arrows/moving-down.png",
         position: downArrow.positionX,
     },
     {
-        direction: "./images/arrows/moving-up.png",
+        direction: "up",
+        src: "./images/arrows/moving-up.png",
         position: upArrow.positionX,
     },
     {
-        direction: "./images/arrows/moving-right.png",
+        direction: "right",
+        src: "./images/arrows/moving-right.png",
         position: rightArrow.positionX,
     }
 ]
@@ -172,10 +181,20 @@ const randomArrows = [];
 setInterval(() => {
     const randomIndex = Math.floor(Math.random() * arrowDirections.length)
         
-    const randomDirection = arrowDirections[randomIndex].direction;
-    const randomPosition = arrowDirections[randomIndex].position;
+    const direction = arrowDirections[randomIndex].direction;
+    const imgSrc = arrowDirections[randomIndex].src;
+    const position = arrowDirections[randomIndex].position;
     
     const newArrow = new movingArrows();
-    newArrow.createDomElement(randomDirection,randomPosition)
+    newArrow.createDomElement(direction, imgSrc, position)
     randomArrows.push(newArrow);
-}, 2000);
+}, 800);
+
+// const leftArrowClass = document.querySelector(".left")
+// const leftArrowClass = document.querySelector(".left")
+
+setInterval(() => {
+    randomArrows.forEach((arrowElm) => {
+        arrowElm.moveUp();
+    })
+}, 6)
