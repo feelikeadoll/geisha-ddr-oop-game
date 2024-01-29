@@ -10,7 +10,7 @@ body {
 }
 
 #board {
-    background-image: url("../images/palace-5.jpg");
+    background-image: url("../images/palace.jpg");
     width: 768px;
     height: 512px;
     position: relative;
@@ -18,5 +18,9 @@ body {
 }
 
 .static-arrows {
+    position: absolute;
+}
+
+.moving-arrows {
     position: absolute;
 }
