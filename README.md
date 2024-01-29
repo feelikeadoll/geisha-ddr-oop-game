@@ -1,6 +1,8 @@
 # Mai Practice
 
-Help our geisha during her Mai practice
+Our maiko, Tomoe, is trainning to become a geisha.
+
+She needs your help to improve her Mai dance, let's see how good you are!
 
 <img src="./images/escenario-1.jpg" alt="geisha">
 
