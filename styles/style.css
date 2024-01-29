@@ -1,20 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=DotGothic16&display=swap');
+
 body {
     margin: 0;
     padding: 0;
     background-color: #620f09;
     background-size: 100%;
-    background-repeat: no-repeat;
+    font-family: 'Darumadrop One', sans-serif;
+    color: white;
+}
+
+section {
     display: flex;
-    align-content: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 #board {
     background-image: url("../images/palace.jpg");
+}
+
+.game-box {
     width: 768px;
     height: 512px;
     position: relative;
     overflow: hidden;
+    border: 4px solid #8f2b23;
 }
 
 .static-arrows {
@@ -23,4 +34,27 @@ body {
 
 .moving-arrows {
     position: absolute;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+#game-intro {
+    background-image: url("../images/escenario-1.jpg");
+}
+
+#score {
+    border: 4px solid #8f2b23;
+    width: 300px;
+    padding: 20px 0px 20px 30px;
+    margin: 10px 0px 10px 0px;
+}
+
+section #header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 768px;
 }
