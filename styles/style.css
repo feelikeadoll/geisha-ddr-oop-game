@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/background-2-faded.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+#board {
+    background-image: url("../images/palace-5.jpg");
+    width: 768px;
+    height: 512px;
+    position: relative;
+    overflow: hidden;
+}
