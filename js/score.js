@@ -36,10 +36,23 @@ playButton.style.width = "250px";
 playButton.style.height = "80px";
 playButton.style.paddingBottom = "80px";
 playButton.style.lineHeight = "0";
-playButton.style.borderRadius = "50px";
-playButton.style.marginTop = "50px";
+playButton.style.borderRadius = "80px";
+playButton.style.marginTop = "40px";
+playButton.style.boxShadow = "0 9px #666"
+
+playButton.addEventListener('mouseover', () => {
+    playButton.style.backgroundColor = "#8f2b23";
+    playButton.style.color = "white";
+});
+
+playButton.addEventListener('mouseout', () => {
+    playButton.style.backgroundColor = "white";
+    playButton.style.color = "#8f2b23";
+});
 
 playButton.addEventListener('click', () => {
+    playButton.style.boxShadow = '0 2px #666';
+    playButton.style.transform = "translateY(4px)";
     location.href = "index.html";
 })
 
@@ -47,3 +60,4 @@ const button = document.getElementById("div2")
 button.appendChild(playButton);
 
 
+localStorage.removeItem("finalScore");
