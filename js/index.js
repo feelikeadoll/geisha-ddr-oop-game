@@ -1,118 +1,59 @@
-class leftStaticArrow {
+class Arrow {
     constructor() {
-        this.width = 90;
-        this.height = 90;
-        this.positionX = 0;
-        this.positionY = 420;
-        this.domElm = null;
-
-        this.createDomElement();
+      this.width = 90;
+      this.height = 90;
+      this.positionX = 0;
+      this.positionY = 420;
     }
-
-    createDomElement(){
-        // step1: create the element
-        this.domElm = document.createElement("img");
-
-        // step2: add content or modify
-        this.domElm.setAttribute("src", "./images/arrows/grey-left.png");
-        this.domElm.setAttribute("class", "static-arrows")
-        this.domElm.style.width = this.width + "px"
-        this.domElm.style.height = this.height + "px"
-        this.domElm.style.left = this.positionX + "px";
-        this.domElm.style.bottom = this.positionY + "px";
-        
-        //step3: append to the dom: `parentElm.appendChild()`
-        const boardElm = document.getElementById("board");
-        boardElm.appendChild(this.domElm);
+  
+    createDomElement(src) {
+      this.domElm = document.createElement("img");
+      this.domElm.setAttribute("src", src);
+      this.domElm.setAttribute("class", "static-arrows");
+      this.domElm.style.width = this.width + "px";
+      this.domElm.style.height = this.height + "px";
+      this.domElm.style.left = this.positionX + "px";
+      this.domElm.style.bottom = this.positionY + "px";
+  
+      const boardElm = document.getElementById("board");
+      boardElm.appendChild(this.domElm);
     }
 }
-
-class downStaticArrow {
+  
+class LeftStaticArrow extends Arrow {
     constructor() {
-        this.width = 90;
-        this.height = 90;
-        this.positionX = this.width;
-        this.positionY = 420;
-        this.domElm = null;
-
-        this.createDomElement();
-    }
-
-    createDomElement(){
-        // step1: create the element
-        this.domElm = document.createElement("img");
-
-        // step2: add content or modify
-        this.domElm.setAttribute("src", "./images/arrows/grey-down.png");
-        this.domElm.setAttribute("class", "static-arrows")
-        this.domElm.style.width = this.width + "px"
-        this.domElm.style.height = this.height + "px"
-        this.domElm.style.left = this.positionX + "px";
-        this.domElm.style.bottom = this.positionY + "px";
-        
-        //step3: append to the dom: `parentElm.appendChild()`
-        const boardElm = document.getElementById("board");
-        boardElm.appendChild(this.domElm);
+      super();
+      const src = "./images/arrows/grey-left.png";
+      this.positionX = this.positionX;
+      this.createDomElement(src);
     }
 }
-
-class upStaticArrow {
+  
+class DownStaticArrow extends Arrow {
     constructor() {
-        this.width = 90;
-        this.height = 90;
-        this.positionX = this.width * 2;
-        this.positionY = 420;
-        this.domElm = null;
-
-        this.createDomElement();
-    }
-
-    createDomElement(){
-        // step1: create the element
-        this.domElm = document.createElement("img");
-
-        // step2: add content or modify
-        this.domElm.setAttribute("src", "./images/arrows/grey-up.png");
-        this.domElm.setAttribute("class", "static-arrows")
-        this.domElm.style.width = this.width + "px"
-        this.domElm.style.height = this.height + "px"
-        this.domElm.style.left = this.positionX + "px";
-        this.domElm.style.bottom = this.positionY + "px";
-        
-        //step3: append to the dom: `parentElm.appendChild()`
-        const boardElm = document.getElementById("board");
-        boardElm.appendChild(this.domElm);
+      super();
+      const src = "./images/arrows/grey-down.png";
+      this.positionX = this.width;
+      this.createDomElement(src);
     }
 }
-
-class rightStaticArrow {
+  
+class UpStaticArrow extends Arrow {
     constructor() {
-        this.width = 90;
-        this.height = 90;
-        this.positionX = this.width * 3;
-        this.positionY = 420;
-        this.domElm = null;
-
-        this.createDomElement();
+      super();
+      const src = "./images/arrows/grey-up.png";
+      this.positionX = this.width * 2;
+      this.createDomElement(src);
     }
-
-    createDomElement(){
-        // step1: create the element
-        this.domElm = document.createElement("img");
-
-        // step2: add content or modify
-        this.domElm.setAttribute("src", "./images/arrows/grey-right.png");
-        this.domElm.setAttribute("class", "static-arrows")
-        this.domElm.style.width = this.width + "px"
-        this.domElm.style.height = this.height + "px"
-        this.domElm.style.left = this.positionX + "px";
-        this.domElm.style.bottom = this.positionY + "px";
-        
-        //step3: append to the dom: `parentElm.appendChild()`
-        const boardElm = document.getElementById("board");
-        boardElm.appendChild(this.domElm);
+}
+  
+class RightStaticArrow extends Arrow {
+    constructor() {
+      super();
+      const src = "./images/arrows/grey-right.png";
+      this.positionX = this.width * 3;
+      this.createDomElement(src);
     }
-
 }
 
 class movingArrows {
@@ -123,10 +64,8 @@ class movingArrows {
     }
 
     createDomElement(direction, src, position){
-        // step1: create the element
         this.domElm = document.createElement("img");
 
-        // step2: add content or modify
         this.domElm.setAttribute("src", src);
         this.domElm.setAttribute("class", `moving-arrows ${direction}`)
         this.domElm.style.width = this.width + "px"
@@ -134,7 +73,6 @@ class movingArrows {
         this.domElm.style.left = position + "px";
         this.domElm.style.bottom = this.positionY + "px";
         
-        //step3: append to the dom: `parentElm.appendChild()`
         const boardElm = document.getElementById("board");
         boardElm.appendChild(this.domElm);
     }
@@ -146,10 +84,10 @@ class movingArrows {
 }
 
 const staticArrows = [];
-const leftArrow = new leftStaticArrow();
-const downArrow = new downStaticArrow();
-const upArrow = new upStaticArrow();
-const rightArrow = new rightStaticArrow();
+const leftArrow = new LeftStaticArrow();
+const downArrow = new DownStaticArrow();
+const upArrow = new UpStaticArrow();
+const rightArrow = new RightStaticArrow();
 
 staticArrows.push(leftArrow, downArrow, upArrow, rightArrow)
 
