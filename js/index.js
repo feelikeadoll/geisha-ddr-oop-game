@@ -91,7 +91,9 @@ setTimeout(() => {
 
 setTimeout(() => {
     clearInterval(game);
-    randomArrows = [];
 
-    location.href = `score.html?score=${score}`;
+    score = score.toString();
+    localStorage.setItem("finalScore", score);
+
+    location.href = "score.html";
 }, 34000);
