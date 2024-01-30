@@ -91,6 +91,15 @@ const rightArrow = new RightStaticArrow();
 
 staticArrows.push(leftArrow, downArrow, upArrow, rightArrow)
 
+let score = 0;
+const scoreElm = document.getElementById("scoreCounter");
+scoreElm.innerText = score;
+
+function updateScore() {
+    score += 7;
+    scoreElm.innerText = score;
+}
+
 const arrowDirections = [
     {
         direction: "left",
@@ -134,29 +143,33 @@ const game = setInterval(() => {
 
         const classElm = arrowElm.domElm.className
 
-        if (arrowElm.positionY > 410 && arrowElm.positionY < 430) {
+        if (arrowElm.positionY > 416 && arrowElm.positionY < 424) {
             if (classElm.includes('left')) {
                 document.addEventListener("keydown", (key) => {
                     if (key.code === 'ArrowLeft') {
                         arrowElm.domElm.style.display = 'none';
+                        updateScore();
                     }
                 });
             } else if (classElm.includes('down')) {
                 document.addEventListener("keydown", (key) => {
                     if (key.code === 'ArrowDown') {
                         arrowElm.domElm.style.display = 'none';
+                        updateScore();
                     }
                 });
             } else if (classElm.includes('up')) {
                 document.addEventListener("keydown", (key) => {
                     if (key.code === 'ArrowUp') {
                         arrowElm.domElm.style.display = 'none';
+                        updateScore();
                     }
                 });
             } else if (classElm.includes('right')) {
                 document.addEventListener("keydown", (key) => {
                     if (key.code === 'ArrowRight') {
                         arrowElm.domElm.style.display = 'none';
+                        updateScore();
                     }
                 });
             }
@@ -170,6 +183,8 @@ setTimeout(() => {
 
 setTimeout(() => {
     location.href = "score.html";
+    const totalScoreElm = document.getElementById("totalScore");
+    totalScoreElm.innerText = score;
     clearInterval(game);
     randomArrows = [];
 }, 34000);
