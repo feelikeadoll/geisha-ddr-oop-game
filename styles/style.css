@@ -74,6 +74,11 @@ h2 {
     font-size: 30px;
 }
 
+#h {
+    font-family: 'Darumadrop One', sans-serif;
+    font-size: 30px;
+}
+
 p {
     font-size: 25px;
 }
@@ -81,9 +86,10 @@ p {
 .elements {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-content: center;
     align-items: center;
+    width: 768px;
 }
 
 .elements > div {
