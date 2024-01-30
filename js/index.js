@@ -135,45 +135,37 @@ const createArrows = setInterval(() => {
     const newArrow = new movingArrows();
     newArrow.createDomElement(direction, imgSrc, position)
     randomArrows.push(newArrow);
+
+    document.addEventListener("keydown", (key) => {
+        randomArrows.forEach((arrowElm) => {
+            const classElm = arrowElm.domElm.className;
+
+            if (arrowElm.positionY > 412 && arrowElm.positionY < 428) {
+              if (classElm.includes('left') && key.code === 'ArrowLeft') {
+                arrowElm.domElm.style.display = 'none';
+                updateScore();
+              }
+              else if (classElm.includes('down') && key.code === 'ArrowDown') {
+                arrowElm.domElm.style.display = 'none';
+                updateScore();
+              }
+              else if (classElm.includes('up') && key.code === 'ArrowUp') {
+                arrowElm.domElm.style.display = 'none';
+                updateScore();
+              }
+              else if (classElm.includes('right') && key.code === 'ArrowRight') {
+                arrowElm.domElm.style.display = 'none';
+                updateScore();
+              }
+            }
+        })
+    });
 }, 800);
+
 
 const game = setInterval(() => {
     randomArrows.forEach((arrowElm) => {
         arrowElm.moveUp();
-
-        const classElm = arrowElm.domElm.className
-
-        if (arrowElm.positionY > 416 && arrowElm.positionY < 424) {
-            if (classElm.includes('left')) {
-                document.addEventListener("keydown", (key) => {
-                    if (key.code === 'ArrowLeft') {
-                        arrowElm.domElm.style.display = 'none';
-                        updateScore();
-                    }
-                });
-            } else if (classElm.includes('down')) {
-                document.addEventListener("keydown", (key) => {
-                    if (key.code === 'ArrowDown') {
-                        arrowElm.domElm.style.display = 'none';
-                        updateScore();
-                    }
-                });
-            } else if (classElm.includes('up')) {
-                document.addEventListener("keydown", (key) => {
-                    if (key.code === 'ArrowUp') {
-                        arrowElm.domElm.style.display = 'none';
-                        updateScore();
-                    }
-                });
-            } else if (classElm.includes('right')) {
-                document.addEventListener("keydown", (key) => {
-                    if (key.code === 'ArrowRight') {
-                        arrowElm.domElm.style.display = 'none';
-                        updateScore();
-                    }
-                });
-            }
-        }
     })
 }, 15)
 
@@ -183,8 +175,6 @@ setTimeout(() => {
 
 setTimeout(() => {
     location.href = "score.html";
-    const totalScoreElm = document.getElementById("totalScore");
-    totalScoreElm.innerText = score;
     clearInterval(game);
     randomArrows = [];
 }, 34000);
