@@ -58,3 +58,37 @@ section #header {
     align-items: center;
     width: 768px;
 }
+
+#end-game {
+    background-image: url("../images/end-background.jpg");
+    display: flex;
+    justify-content: center;
+}
+
+#finalScore {
+    font-size: 80px;
+}
+
+h2 {
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 30px;
+}
+
+p {
+    font-size: 25px;
+}
+
+.elements {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.elements > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -12,7 +12,7 @@ const scoreElm = document.getElementById("scoreCounter");
 scoreElm.innerText = score;
 
 function updateScore() {
-    score += 7;
+    score++;
     scoreElm.innerText = score;
 }
 

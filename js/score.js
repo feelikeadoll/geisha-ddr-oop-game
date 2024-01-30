@@ -1,4 +1,12 @@
-const score = localStorage.getItem("finalScore");
+let score = localStorage.getItem("finalScore");
 
 const finalScoreElm = document.getElementById("finalScore");
-finalScoreElm.innerText = score;
+score = Number(score)
+
+finalScoreElm.innerText = 0;
+
+setInterval(() => {
+    if (finalScoreElm.innerText < score) {
+        finalScoreElm.innerText++;
+    }
+}, 1);
