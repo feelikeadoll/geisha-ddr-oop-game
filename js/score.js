@@ -38,7 +38,7 @@ playButton.style.paddingBottom = "80px";
 playButton.style.lineHeight = "0";
 playButton.style.borderRadius = "80px";
 playButton.style.marginTop = "40px";
-playButton.style.boxShadow = "0 9px #666"
+playButton.style.boxShadow = "0 9px #620f09";
 
 playButton.addEventListener('mouseover', () => {
     playButton.style.backgroundColor = "#8f2b23";
@@ -51,13 +51,12 @@ playButton.addEventListener('mouseout', () => {
 });
 
 playButton.addEventListener('click', () => {
-    playButton.style.boxShadow = '0 2px #666';
+    playButton.style.boxShadow = '0 2px #620f09';
     playButton.style.transform = "translateY(4px)";
     location.href = "index.html";
 })
 
 const button = document.getElementById("div2")
 button.appendChild(playButton);
-
 
 localStorage.removeItem("finalScore");
