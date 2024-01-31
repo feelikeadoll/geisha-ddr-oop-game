@@ -28,14 +28,6 @@ section {
     border: 4px solid #8f2b23;
 }
 
-.static-arrows {
-    position: absolute;
-}
-
-.moving-arrows {
-    position: absolute;
-}
-
 h1 {
     font-size: 35px;
 }

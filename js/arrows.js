@@ -4,6 +4,7 @@ class Arrow {
       this.height = 90;
       this.positionX = 0;
       this.positionY = 420;
+      this.position = "absolute";
     }
   
     createDomElement(src) {
@@ -14,6 +15,7 @@ class Arrow {
       this.domElm.style.height = this.height + "px";
       this.domElm.style.left = this.positionX + "px";
       this.domElm.style.bottom = this.positionY + "px";
+      this.domElm.style.position = this.position;
   
       const boardElm = document.getElementById("board");
       boardElm.appendChild(this.domElm);
@@ -61,6 +63,7 @@ class movingArrows {
         this.width = 90;
         this.height = 90;
         this.positionY = 0 - this.height;
+        this.position = "absolute";
     }
 
     createDomElement(direction, src, position){
@@ -72,6 +75,7 @@ class movingArrows {
         this.domElm.style.height = this.height + "px"
         this.domElm.style.left = position + "px";
         this.domElm.style.bottom = this.positionY + "px";
+        this.domElm.style.position = this.position;
         
         const boardElm = document.getElementById("board");
         boardElm.appendChild(this.domElm);
