@@ -2,7 +2,7 @@
 
 Our maiko, Tomoe, is trainning to become a geisha and she needs your help to improve her Mai dance, let's see how good you are!
 
-<img src="./images/geisha.png" alt="geisha">
+<img src="./images/README.jpg" alt="Geisha Mai Practice game preview">
 
 
 ## Description 
