@@ -2,7 +2,7 @@
 
 const mainDiv = document.getElementById("intro")
 
-for (let i = 1; i <= 4; i++) {
+for (let i = 1; i <= 3; i++) {
     const div = document.createElement("div")
     div.setAttribute("id", `div${i}`)
     mainDiv.appendChild(div)
@@ -58,6 +58,11 @@ radioDiv.style.position = "absolute";
 radioDiv.style.left = "55px";
 radioDiv.style.bottom = "170px";
 
+const playForm = document.createElement("form");
+playForm.setAttribute("id", "levelForm")
+
+radioDiv.appendChild(playForm)
+
 const levels = [ "Easy", "Medium", "Difficult"]
 
 levels.forEach((elm, i) => {
@@ -77,8 +82,8 @@ levels.forEach((elm, i) => {
     }
 
     radioButtons.push(radioButton);
-    radioDiv.appendChild(radioButton);
-    radioDiv.appendChild(label);
+    playForm.appendChild(radioButton);
+    playForm.appendChild(label);
 });
 
 
@@ -91,13 +96,13 @@ const buttonMarginTop = 40;
 const buttonHref = "game.html";
 
 const playButton = new Button(buttonMarginTop);
-const button = playButton.createButtonElement(playButtonText, "absolute", buttonHref, "div3", "65", "70")
+const button = playButton.createButtonElement(playButtonText, "absolute", buttonHref, "levelForm", "10", "-100")
 
 
 
 ////// GEISHA IMAGE ///////
 
-const introImg = document.getElementById("div4");
+const introImg = document.getElementById("div3");
 
 geishaImg = document.createElement("img");
 geishaImg.setAttribute("src", "./images/geisha.png");
