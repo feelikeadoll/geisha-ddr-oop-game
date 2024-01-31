@@ -3,7 +3,12 @@ let score = localStorage.getItem("finalScore");
 const finalScoreElm = document.getElementById("finalScore");
 score = Number(score)
 
-finalScoreElm.innerText = 0;
+if (score === 0 || score < 100)
+{
+    finalScoreElm.innerText = 0;
+} else {
+    finalScoreElm.innerText = score - 100;
+}
 
 setInterval(() => {
     if (finalScoreElm.innerText < score) {
