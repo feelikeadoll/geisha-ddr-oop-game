@@ -1,6 +1,8 @@
 const geisha = new Geisha()
-geisha.dancingGeisha();
-  
+// geisha.autoDancingGeisha();
+
+geisha.startPose();
+
 const staticArrows = [];
 
 const leftArrow = new LeftStaticArrow();
@@ -85,18 +87,22 @@ const createArrows = setInterval(() => {
               if (classElm.includes('left') && key.code === 'ArrowLeft') {
                 arrowElm.domElm.style.display = 'none';
                 updateScore();
+                geisha.changePose();
               }
               else if (classElm.includes('down') && key.code === 'ArrowDown') {
                 arrowElm.domElm.style.display = 'none';
                 updateScore();
+                geisha.changePose();
               }
               else if (classElm.includes('up') && key.code === 'ArrowUp') {
                 arrowElm.domElm.style.display = 'none';
                 updateScore();
+                geisha.changePose();
               }
               else if (classElm.includes('right') && key.code === 'ArrowRight') {
                 arrowElm.domElm.style.display = 'none';
                 updateScore();
+                geisha.changePose();
               }
             }
         })

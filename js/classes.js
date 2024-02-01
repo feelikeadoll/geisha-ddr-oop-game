@@ -162,6 +162,7 @@ class Geisha {
       this.positionX = 433;
       this.positionY = 30;
       this.id = "dancing-geisha";
+      this.i = 0;
 
       this.geishaPoses = [
           "./images/geisha-poses/geisha-1.png",
@@ -192,13 +193,12 @@ class Geisha {
       element.remove();
   }
 
-  dancingGeisha() {
-      let i = 0;
-      this.createDomElement(geisha.geishaPoses[i]) 
+  autoDancingGeisha() {
+      this.createDomElement(this.geishaPoses[this.i]);
 
       setInterval(() => {
-          i++;
-          this.createDomElement(geisha.geishaPoses[i]);
+          this.i++;
+          this.createDomElement(geisha.geishaPoses[this.i]);
           if (i === 5) {
               i = 0;
           }
@@ -207,5 +207,18 @@ class Geisha {
       setInterval(() => {
           this.removeDomElement()
       }, 1000);
+  }
+
+  startPose() {
+    this.createDomElement(geisha.geishaPoses[0]);
+  }
+
+  changePose() {
+    this.i++;
+    this.createDomElement(geisha.geishaPoses[this.i]);
+    this.removeDomElement();
+    if (this.i === 5) {
+        this.i = 0;
+    }
   }
 }

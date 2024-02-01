@@ -14,7 +14,12 @@ Built with web technologies (html, css & javascript)
 
 ## How to play
 
-Press the right arrow key at the right time and increment your score
+Press the right arrow key (⇦ / ⇧ / ⇩ / ⇨) at the right time and increment your score.
+
+
+# Demo
+
+You can play the game <a href="https://feelikeadoll.github.io/geisha-ddr-oop-game/">here</a>.
 
 
 # PLAN OF ACTION
@@ -43,11 +48,11 @@ Day 3
 - [x] Create Geisha class
 - [x] Add "movement"
 - [x] Create initial page
-- [ ] Create difficulty levels
-- [ ] Allow choosing difficulty in index.html
+- [x] Create difficulty levels
+- [x] Allow choosing difficulty in index.html
 
 Day 4
-- [ ] Add "movement" according to pressed arrows/points earned
+- [x] Add geisha "movement" according to pressed arrows/points earned
 - [ ] Create other types of arrows:
     - 2 at the same time
     - All four at the same time (space bar)
