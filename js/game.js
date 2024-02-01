@@ -41,7 +41,7 @@ const arrowDirections = [
     {
         direction: "left",
         src: "./images/arrows/moving-left.png",
-        position: leftArrow.positionX
+        position: leftArrow.positionX,
     },
     {
         direction: "down",
@@ -66,17 +66,20 @@ const levels = {
     easy: {
         create: 800,
         speed: 15,
-        double: 6
+        double: 6,
+        song: "./music/easy.mp3"
     },
     medium: {
         create: 600,
         speed: 12,
-        double: 3
+        double: 3,
+        song: "./music/medium.mp3"
     },
     difficult: {
         create: 500,
         speed: 10,
-        double: 2
+        double: 2,
+        song: "./music/difficult.mp3"
     }
 }
 
@@ -86,6 +89,9 @@ chosenLevel = chosenLevel.toLowerCase();
 console.log(chosenLevel)
 console.log("create: ", levels[chosenLevel].create)
 console.log("moveup: ", levels[chosenLevel].speed)
+
+let song = new Audio(levels[chosenLevel].song)
+song.play()
 
 const createArrows = setInterval(() => {
     const randomIndex = Math.floor(Math.random() * arrowDirections.length)
