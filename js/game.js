@@ -21,6 +21,22 @@ function updateScore() {
     scoreElm.innerText = score;
 }
 
+let time = 40;
+const boardElm = document.getElementById("board");
+const timeCounter = document.createElement("div")
+timeCounter.innerText = `00:${time}`;
+timeCounter.style.position = "absolute";
+timeCounter.style.right = "30px"
+timeCounter.style.top = "10px";
+timeCounter.style.fontSize = "25px"
+
+boardElm.appendChild(timeCounter)
+
+setInterval(() => {
+    time--;
+    timeCounter.innerText = `00:${time}`;
+}, 1000);
+
 const arrowDirections = [
     {
         direction: "left",
@@ -50,7 +66,7 @@ const levels = {
     easy: {
         create: 800,
         speed: 15,
-        double: 4
+        double: 6
     },
     medium: {
         create: 600,
@@ -152,10 +168,6 @@ const createSecondArrows = setInterval(() => {
     });
 }, levels[chosenLevel].create * levels[chosenLevel].double);
 
-setTimeout(() => {
-    clearInterval(createSecondArrows);
-}, 30000);
-
 const game = setInterval(() => {
     randomArrows.forEach((arrowElm) => {
         arrowElm.moveUp();
@@ -164,7 +176,8 @@ const game = setInterval(() => {
 
 setTimeout(() => {
     clearInterval(createArrows);
-}, 30000);
+    clearInterval(createSecondArrows);
+}, (time - 4) * 1000);
 
 setTimeout(() => {
     clearInterval(game);
@@ -173,4 +186,4 @@ setTimeout(() => {
     localStorage.setItem("finalScore", score);
 
     location.href = "score.html";
-}, 34000);
+}, time * 1000);
