@@ -49,15 +49,18 @@ const randomArrows = [];
 const levels = {
     easy: {
         create: 800,
-        speed: 15
+        speed: 15,
+        double: 4
     },
     medium: {
         create: 600,
-        speed: 12
+        speed: 12,
+        double: 3
     },
     difficult: {
-        create: 600,
-        speed: 12
+        create: 500,
+        speed: 10,
+        double: 2
     }
 }
 
@@ -110,50 +113,48 @@ const createArrows = setInterval(() => {
 }, levels[chosenLevel].create);
 
 
-if (chosenLevel === 'difficult') {
-    const createSecondArrows = setInterval(() => {
-        const randomIndex = Math.floor(Math.random() * arrowDirections.length)
-            
-        const direction = arrowDirections[randomIndex].direction;
-        const imgSrc = arrowDirections[randomIndex].src;
-        const position = arrowDirections[randomIndex].position;
+const createSecondArrows = setInterval(() => {
+    const randomIndex = Math.floor(Math.random() * arrowDirections.length)
         
-        const newArrow = new movingArrows();
-        newArrow.createDomElement(direction, imgSrc, position)
-        randomArrows.push(newArrow);
-
-        document.addEventListener("keydown", (key) => {
-            randomArrows.forEach((arrowElm) => {
-                const classElm = arrowElm.domElm.className;
-
-                if (arrowElm.positionY > 412 && arrowElm.positionY < 428) {
-                if (classElm.includes('left') && key.code === 'ArrowLeft') {
-                    arrowElm.domElm.style.display = 'none';
-                    updateScore();
-                }
-                else if (classElm.includes('down') && key.code === 'ArrowDown') {
-                    arrowElm.domElm.style.display = 'none';
-                    updateScore();
-                }
-                else if (classElm.includes('up') && key.code === 'ArrowUp') {
-                    arrowElm.domElm.style.display = 'none';
-                    updateScore();
-                    geisha.changePose();
-                }
-                else if (classElm.includes('right') && key.code === 'ArrowRight') {
-                    arrowElm.domElm.style.display = 'none';
-                    updateScore();
-                    geisha.changePose();
-                }
-                }
-            })
-        });
-    }, levels[chosenLevel].create * 2);
+    const direction = arrowDirections[randomIndex].direction;
+    const imgSrc = arrowDirections[randomIndex].src;
+    const position = arrowDirections[randomIndex].position;
     
-    setTimeout(() => {
-        clearInterval(createSecondArrows);
-    }, 30000);
-}
+    const newArrow = new movingArrows();
+    newArrow.createDomElement(direction, imgSrc, position)
+    randomArrows.push(newArrow);
+
+    document.addEventListener("keydown", (key) => {
+        randomArrows.forEach((arrowElm) => {
+            const classElm = arrowElm.domElm.className;
+
+            if (arrowElm.positionY > 412 && arrowElm.positionY < 428) {
+            if (classElm.includes('left') && key.code === 'ArrowLeft') {
+                arrowElm.domElm.style.display = 'none';
+                updateScore();
+            }
+            else if (classElm.includes('down') && key.code === 'ArrowDown') {
+                arrowElm.domElm.style.display = 'none';
+                updateScore();
+            }
+            else if (classElm.includes('up') && key.code === 'ArrowUp') {
+                arrowElm.domElm.style.display = 'none';
+                updateScore();
+                geisha.changePose();
+            }
+            else if (classElm.includes('right') && key.code === 'ArrowRight') {
+                arrowElm.domElm.style.display = 'none';
+                updateScore();
+                geisha.changePose();
+            }
+            }
+        })
+    });
+}, levels[chosenLevel].create * levels[chosenLevel].double);
+
+setTimeout(() => {
+    clearInterval(createSecondArrows);
+}, 30000);
 
 const game = setInterval(() => {
     randomArrows.forEach((arrowElm) => {
