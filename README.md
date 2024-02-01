@@ -14,7 +14,7 @@ Built with web technologies (html, css & javascript)
 
 ## How to play
 
-Press the right arrow key (⇦ / ⇧ / ⇩ / ⇨) at the right time and increment your score.
+Press the right arrow key (← / ↑ / ↓ / →) at the right time and make Tomoe dance while incrementing your score.
 
 
 # Demo
@@ -53,9 +53,6 @@ Day 3
 
 Day 4
 - [x] Add geisha "movement" according to pressed arrows/points earned
-- [ ] Create other types of arrows:
-    - 2 at the same time
-    - All four at the same time (space bar)
-    - Long arrows
+- [x] Create 2 arrows at the same time
 - [ ] Finish README.md
 - [ ] Add music ?¿
