@@ -35,6 +35,7 @@ const buttonMarginTop = 40;
 const buttonHref = "index.html";
 
 const playButton = new Button(buttonMarginTop);
-const button = playButton.createButtonElement(playButtonText, "", buttonHref, "div2")
+const button = playButton.createButtonElement(playButtonText, "", "div2")
+playButton.normalClickEvent(buttonHref)
 
 localStorage.removeItem("finalScore");

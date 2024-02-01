@@ -97,7 +97,7 @@ class Button {
       this.marginTop = margin;
   }
 
-  createButtonElement(str, position, direction, location, x = "0", y = "0") {
+  createButtonElement(str, position, location, x = "0", y = "0") {
       this.button = document.createElement("button")
 
       this.button.setAttribute("class", "button")
@@ -127,15 +127,32 @@ class Button {
           this.button.style.color = "#8f2b23";
       });
       
-      this.button.addEventListener('click', () => {
-          this.button.style.boxShadow = '0 3px #620f09';
-          this.button.style.transform = "translateY(6px)";
-          window.location.href = direction;
-      })
-
       const htmlLocation = document.getElementById(location)
       htmlLocation.appendChild(this.button);
   }
+
+  normalClickEvent(direction) {
+    this.button.addEventListener('click', () => {
+        this.button.style.boxShadow = '0 3px #620f09';
+        this.button.style.transform = "translateY(6px)";
+        window.location.href = direction;
+    })
+  }
+
+  submitClickEvent(direction) {
+    this.button.addEventListener('click', () => {
+        this.button.style.boxShadow = '0 3px #620f09';
+        this.button.style.transform = "translateY(6px)";
+
+        const checked = document.querySelector('input[name="levels"]:checked').value;
+
+        localStorage.setItem("difficulty", checked);
+        if (checked !== null) {
+            window.location.href = direction;
+        }
+    })
+  }
+  
 }
 
 class Geisha {

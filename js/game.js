@@ -59,6 +59,12 @@ const levels = {
     }
 }
 
+let chosenLevel = localStorage.getItem("difficulty");
+chosenLevel = chosenLevel.toLowerCase();
+
+console.log(chosenLevel)
+console.log("create: ", levels[chosenLevel].create)
+console.log("moveup: ", levels[chosenLevel].speed)
 
 const createArrows = setInterval(() => {
     const randomIndex = Math.floor(Math.random() * arrowDirections.length)
@@ -95,14 +101,14 @@ const createArrows = setInterval(() => {
             }
         })
     });
-}, levels.easy.create);
+}, levels[chosenLevel].create);
 
 
 const game = setInterval(() => {
     randomArrows.forEach((arrowElm) => {
         arrowElm.moveUp();
     })
-}, levels.easy.speed)
+}, levels[chosenLevel].speed)
 
 setTimeout(() => {
     clearInterval(createArrows);

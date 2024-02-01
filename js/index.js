@@ -2,7 +2,7 @@
 
 const mainDiv = document.getElementById("intro")
 
-for (let i = 1; i <= 3; i++) {
+for (let i = 1; i <= 4; i++) {
     const div = document.createElement("div")
     div.setAttribute("id", `div${i}`)
     mainDiv.appendChild(div)
@@ -50,18 +50,11 @@ textBox.appendChild(instructions)
 
 /////// RADIO BUTTONS ///////
 
-const radioButtons = []
-
 const radioDiv = document.getElementById("div2")
 
 radioDiv.style.position = "absolute";
 radioDiv.style.left = "55px";
 radioDiv.style.bottom = "170px";
-
-const playForm = document.createElement("form");
-playForm.setAttribute("id", "levelForm")
-
-radioDiv.appendChild(playForm)
 
 const levels = [ "Easy", "Medium", "Difficult"]
 
@@ -73,19 +66,14 @@ levels.forEach((elm, i) => {
     radioButton.setAttribute("value", elm);
     radioButton.setAttribute("class", "radio-button")
     radioButton.style.backgroundColor = "red";
+    // radioButton.setAttribute("checked", "checked")
     label.style.padding = "5px";
     label.style.fontSize = "20px"
     label.innerText = elm;
 
-    if (i === 0) {
-        radioButton.setAttribute("checked", "checked");
-    }
-
-    radioButtons.push(radioButton);
-    playForm.appendChild(radioButton);
-    playForm.appendChild(label);
+    radioDiv.appendChild(radioButton);
+    radioDiv.appendChild(label);
 });
-
 
 
 /////// BUTTON ///////
@@ -96,13 +84,14 @@ const buttonMarginTop = 40;
 const buttonHref = "game.html";
 
 const playButton = new Button(buttonMarginTop);
-const button = playButton.createButtonElement(playButtonText, "absolute", buttonHref, "levelForm", "10", "-100")
+const button = playButton.createButtonElement(playButtonText, "absolute", "div3", "60", "70")
 
+playButton.submitClickEvent(buttonHref);
 
 
 ////// GEISHA IMAGE ///////
 
-const introImg = document.getElementById("div3");
+const introImg = document.getElementById("div4");
 
 geishaImg = document.createElement("img");
 geishaImg.setAttribute("src", "./images/geisha.png");
