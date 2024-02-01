@@ -1,11 +1,10 @@
 # Mai Practice
 
+## Description 
+
 Our maiko, Tomoe, is trainning to become a geisha and she needs your help to improve her Mai dance, let's see how good you are!
 
 <img src="./images/README.jpg" alt="Geisha Mai Practice game preview">
-
-
-## Description 
 
 OOP game based in the classic Dance Dance Revolution
 
@@ -22,37 +21,10 @@ Press the right arrow key (← / ↑ / ↓ / →) at the right time and make Tom
 You can play the game <a href="https://feelikeadoll.github.io/geisha-ddr-oop-game/">here</a>.
 
 
-# PLAN OF ACTION
+# Credits
 
-Day 1
-- [x] Initial setup
-- [x] Setup HTML
-- [x] Create static arrows classes
-- [x] Create moving arrow classes
-- [x] Create movement bottom to top
-- [x] Add event listeners to click arrows
-- [x] Detect "collision"
-- [x] Make marked arrow disappear from screen
+All graphics have been generated with an AI. The arrows are the original ones from DDR.
 
-Day 2
-- [x] Try to refactor classes
-- [x] Create score system
-- [x] Implement score in game
-- [X] DEBUG score system
-- [x] Add score in end page
-- [x] Complete score page
+Music I've used: <a href="https://www.youtube.com/watch?v=eJwHKrFX0Zc">Easy level song</a>, <a href="https://www.youtube.com/watch?v=s7VD9spSwQ0">Medium level song</a> and <a href="https://www.youtube.com/watch?v=NPX6_qfUIhw">Difficult level song</a>.
 
-Day 3
-- [x] Refactor score.js
-- [x] Create Button class
-- [x] Create Geisha class
-- [x] Add "movement"
-- [x] Create initial page
-- [x] Create difficulty levels
-- [x] Allow choosing difficulty in index.html
-
-Day 4
-- [x] Add geisha "movement" according to pressed arrows/points earned
-- [x] Create 2 arrows at the same time
-- [ ] Finish README.md
-- [ ] Add music ?¿
+Game completely created by <a href="https://github.com/feelikeadoll">Laia Navalon Arxe</a>.
