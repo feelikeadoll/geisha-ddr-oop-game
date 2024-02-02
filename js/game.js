@@ -95,11 +95,11 @@ song.play()
 
 const createArrows = setInterval(() => {
     const randomIndex = Math.floor(Math.random() * arrowDirections.length)
-        
+
     const direction = arrowDirections[randomIndex].direction;
     const imgSrc = arrowDirections[randomIndex].src;
     const position = arrowDirections[randomIndex].position;
-    
+
     const newArrow = new movingArrows();
     newArrow.createDomElement(direction, imgSrc, position)
     randomArrows.push(newArrow);
@@ -108,27 +108,27 @@ const createArrows = setInterval(() => {
         randomArrows.forEach((arrowElm) => {
             const classElm = arrowElm.domElm.className;
 
-            if (arrowElm.positionY > 412 && arrowElm.positionY < 428) {
-              if (classElm.includes('left') && key.code === 'ArrowLeft') {
-                arrowElm.domElm.style.display = 'none';
-                updateScore();
-                geisha.changePose();
-              }
-              else if (classElm.includes('down') && key.code === 'ArrowDown') {
-                arrowElm.domElm.style.display = 'none';
-                updateScore();
-                geisha.changePose();
-              }
-              else if (classElm.includes('up') && key.code === 'ArrowUp') {
-                arrowElm.domElm.style.display = 'none';
-                updateScore();
-                geisha.changePose();
-              }
-              else if (classElm.includes('right') && key.code === 'ArrowRight') {
-                arrowElm.domElm.style.display = 'none';
-                updateScore();
-                geisha.changePose();
-              }
+            if (arrowElm.positionY > 405 && arrowElm.positionY < 435) {
+                if (classElm.includes('left') && key.code === 'ArrowLeft') {
+                    arrowElm.domElm.style.display = 'none';
+                    updateScore();
+                    geisha.changePose();
+                }
+                else if (classElm.includes('down') && key.code === 'ArrowDown') {
+                    arrowElm.domElm.style.display = 'none';
+                    updateScore();
+                    geisha.changePose();
+                }
+                else if (classElm.includes('up') && key.code === 'ArrowUp') {
+                    arrowElm.domElm.style.display = 'none';
+                    updateScore();
+                    geisha.changePose();
+                }
+                else if (classElm.includes('right') && key.code === 'ArrowRight') {
+                    arrowElm.domElm.style.display = 'none';
+                    updateScore();
+                    geisha.changePose();
+                }
             }
         })
     });
@@ -150,25 +150,25 @@ const createSecondArrows = setInterval(() => {
         randomArrows.forEach((arrowElm) => {
             const classElm = arrowElm.domElm.className;
 
-            if (arrowElm.positionY > 412 && arrowElm.positionY < 428) {
-            if (classElm.includes('left') && key.code === 'ArrowLeft') {
-                arrowElm.domElm.style.display = 'none';
-                updateScore();
-            }
-            else if (classElm.includes('down') && key.code === 'ArrowDown') {
-                arrowElm.domElm.style.display = 'none';
-                updateScore();
-            }
-            else if (classElm.includes('up') && key.code === 'ArrowUp') {
-                arrowElm.domElm.style.display = 'none';
-                updateScore();
-                geisha.changePose();
-            }
-            else if (classElm.includes('right') && key.code === 'ArrowRight') {
-                arrowElm.domElm.style.display = 'none';
-                updateScore();
-                geisha.changePose();
-            }
+            if (arrowElm.positionY > 405 && arrowElm.positionY < 435) {
+                if (classElm.includes('left') && key.code === 'ArrowLeft') {
+                    arrowElm.domElm.style.display = 'none';
+                    updateScore();
+                }
+                else if (classElm.includes('down') && key.code === 'ArrowDown') {
+                    arrowElm.domElm.style.display = 'none';
+                    updateScore();
+                }
+                else if (classElm.includes('up') && key.code === 'ArrowUp') {
+                    arrowElm.domElm.style.display = 'none';
+                    updateScore();
+                    geisha.changePose();
+                }
+                else if (classElm.includes('right') && key.code === 'ArrowRight') {
+                    arrowElm.domElm.style.display = 'none';
+                    updateScore();
+                    geisha.changePose();
+                }
             }
         })
     });
@@ -189,6 +189,7 @@ setTimeout(() => {
     clearInterval(game);
 
     score = score.toString();
+    localStorage.removeItem("difficulty");
     localStorage.setItem("finalScore", score);
 
     location.href = "score.html";
